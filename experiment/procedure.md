@@ -1,5 +1,5 @@
 ### Procedure
-1. Enter the training points in the data points section
+1. Click on Board Area to plot the training points in the data points section
 <img src="./images/image_1.png" style="width:700px; heigth:480px>
 
 2. You do not have to put the center point and the standard deviation as those two are fixed.
