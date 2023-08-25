@@ -1,0 +1,22 @@
+
+/home/runner/work/exp-radial-basis-function-iitkgp/exp-radial-basis-function-iitkgp/experiment/simulation/js/main.js
+   15:5   warning  'classes' is assigned a value but never used            no-unused-vars
+   20:5   warning  'i' is assigned a value but never used                  no-unused-vars
+   21:5   warning  'tabrowindex' is already defined                        no-redeclare
+   25:5   warning  'chart' is defined but never used                       no-unused-vars
+   26:7   warning  'randomcenterpoint' is assigned a value but never used  no-unused-vars
+   29:1   warning  '$' is not defined                                      no-undef
+   30:5   warning  '$' is not defined                                      no-undef
+   35:10  warning  'canvas11' is defined but never used                    no-unused-vars
+   44:13  warning  'pos1' is assigned a value but never used               no-unused-vars
+   64:2   warning  Unnecessary semicolon                                   no-extra-semi
+   65:5   warning  'coordinates' is assigned a value but never used        no-unused-vars
+  145:10  warning  'reset' is defined but never used                       no-unused-vars
+  174:10  warning  'redraw' is defined but never used                      no-unused-vars
+  181:10  warning  'checkcenter' is defined but never used                 no-unused-vars
+  186:10  warning  'go' is defined but never used                          no-unused-vars
+  188:9   warning  'sd' is assigned a value but never used                 no-unused-vars
+
+✖ 16 problems (0 errors, 16 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+

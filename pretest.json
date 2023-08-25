@@ -1,0 +1,29 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the primary purpose of a Radial Basis Function (RBF) in machine learning?",
+      "answers": {
+        "a": "Feature Selection",
+        "b": "Classification",
+        "c": "Regeression",
+        "d": "Dimensionality Reduction"
+      },
+      
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the context of RBF networks, what does the term 'radial' refer to?",
+      "answers": {
+        "a": "The use of circular data points",
+        "b": "The radial distance between data points and centroids",
+        "c": "The radial basis of the activation function",
+        "d": "The radius of the feature space"
+      },
+      
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}
