@@ -93,6 +93,7 @@ function drawCoordinates(x, y) {
         ctx1.fillStyle = "blue";
         ctx1.fill();
         ctx1.stroke();
+        document.getElementById("centernum").value = points.length;
 
         /* f ((x>= 0 && x <= 225) && (y >= -400 && y <= -200)){
         classes.push(1);
@@ -143,22 +144,7 @@ function tabled() {
 
 
 function reset() {
-    ctx1.fillStyle = "black";
-    ctx1.clearRect(0, -200, gcanvas1.width, gcanvas1.height);
-    //ctx1.clearRect(0, 0, canvas1.width, canvas1.height);
-    ctx1.fillRect(0, -transY, 1, gcanvas1.height); //vertical Axis
-    ctx1.fillRect(- transX, 0, gcanvas1.width, 1); //Horizantal Axis
-    var rowCount = table.rows.length;
-    for (var j = rowCount - 1; j >= 1; j--) {
-        table.deleteRow(j);
-        points.pop();
-        dataPointsg.pop();
-    }
-    tabrowindex = 0;
-    i = 0;
-    document.getElementById("tpdata").innerHTML = "";
-    //console.log(xyz);
-
+    location.reload();
     //clearChart();
 
 }
@@ -183,71 +169,120 @@ function checkcenter() {
 
 }
 
+function gaussianRBF(x, c, sigma) {
+    return Math.exp(-((x - c) ** 2) / (2 * sigma * sigma));
+}
+
+function sigmaFrom2DPoints(points) {
+    const meanX = points.reduce((s, p) => s + p.x, 0) / points.length;
+    const meanY = points.reduce((s, p) => s + p.y, 0) / points.length;
+
+    const distances = points.map(p =>
+        Math.sqrt((p.x - meanX) ** 2 + (p.y - meanY) ** 2)
+    );
+
+    const meanDist = distances.reduce((a, b) => a + b, 0) / distances.length;
+
+    const variance = distances.reduce((s, d) => s + (d - meanDist) ** 2, 0) / distances.length;
+
+    return Math.sqrt(variance);
+}
+
+
 function go() {
 
-    var sd = document.getElementById("sd").value;
+    if (points.length === 0) return;
 
-    //const centerPoint = getRandomPointFromdataset(points);
+    // Use defaults if inputs are empty
+   // let sigma = parseFloat(document.getElementById("sd").value) || 40;
 
-    //randomcenterpoint.push(randomPoint);
-    //console.log('Center Point:', centerPoint);
-    //console.log('Updated Data Points Array:', randomcenterpoint);
+   let sigma = sigmaFrom2DPoints(points);
+document.getElementById("sd").value=(sigma/100).toFixed(2);
 
-    console.log('Data Points from table:', points);
-    const centerY = 100;
-    const variance = 100;
-
-    /* for (let p = 0; p < points.length; p++) {
-           const distance = euclideanDistance(points[p].x, points[p].y, centerPoint.x, centerPoint.y);
-           console.log('Euclidean Distance:', distance);
-          // const phi = Math.exp(-beta * distance);
-         //const value= phi * Math.sqrt(distance);
-          //const value1 = Math.exp(-(((distance)** 2) / 2*(sd) **2));
-         // const value2 = 1 /(math.sqrt(2*3.14*((sd)**2)));
-          //const gf =value2 * value1;
-          //console.log('gf:', gf);
-          //console.log('Value1:',value1);
-          //console.log('Value2:', value2);
-           dataPointsg.push({ x: p, y: distance});
-       } */
-    //console.log(dataPointsg); 
-
-
-
-    //showgraph();
-
-    // Get the canvas element and its 2d context
     const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d');
 
-    // Clear the canvas
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw Gaussian basis functions for each data point
-    for (const point of points) {
-        drawGaussianBasisFunction(point.x, point.y);
-    }
+    // Draw baseline
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height);
+    ctx.lineTo(canvas.width, canvas.height);
+    ctx.strokeStyle = "#aaa";
+    ctx.stroke();
 
-    // Function to draw a Gaussian basis function curve
-    function drawGaussianBasisFunction(x, y) {
-        context.beginPath();
-        context.strokeStyle = 'blue';
-        context.lineWidth = 2;
+    // Draw Gaussian RBF for each point
+    points.forEach(p => {
+        drawGaussian(p.x, sigma);
+    });
 
-        for (let xPos = 0; xPos < canvas.width; xPos++) {
-            const distance = Math.sqrt((xPos - x) ** 2 + (centerY - y) ** 2);
-            const value = Math.exp(-((distance ** 2) / (2 * variance ** 2)));
-            const yPos = centerY - value * 150; // Scale for visualization
-            if (xPos === 0) {
-                context.moveTo(xPos, yPos);
-            } else {
-                context.lineTo(xPos, yPos);
-            }
+    function drawGaussian(centerX, sigma) {
+        ctx.beginPath();
+        ctx.strokeStyle = "blue";
+        ctx.lineWidth = 1.5;
+
+        for (let x = 0; x < canvas.width; x++) {
+            let phi = gaussianRBF(x, centerX, sigma);
+            let y = canvas.height- phi * 80;
+
+            if (x === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
         }
-
-        context.stroke();
+        ctx.stroke();
     }
-
-
 }
+
+
+// function go() {
+
+    
+//     var centerpoint = document.getElementById("centernum").value;
+//     var sd = document.getElementById("sd").value;
+
+    
+
+//     console.log('Data Points from table:', points);
+//     const centerY = 100;
+//     const variance = sd;
+
+   
+
+
+
+//     //showgraph();
+
+//     // Get the canvas element and its 2d context
+//     const canvas = document.getElementById('canvas');
+//     const context = canvas.getContext('2d');
+
+//     // Clear the canvas
+//     context.clearRect(0, 0, canvas.width, canvas.height);
+
+//     // Draw Gaussian basis functions for each data point
+//     for (const point of points) {
+//         drawGaussianBasisFunction(point.x, point.y);
+//     }
+
+//     // Function to draw a Gaussian basis function curve
+//     function drawGaussianBasisFunction(x, y) {
+//         context.beginPath();
+//         context.strokeStyle = 'blue';
+//         context.lineWidth = 2;
+
+//         for (let xPos = 0; xPos < canvas.width; xPos++) {
+//             const distance = Math.sqrt((xPos - x) ** 2 + (centerY - y) ** 2);
+//             const value = Math.exp(-((distance ** 2) / (2 * variance ** 2)));
+//             const yPos = centerY - value * 150; // Scale for visualization
+//             if (xPos === 0) {
+//                 context.moveTo(xPos, yPos);
+//             } else {
+//                 context.lineTo(xPos, yPos);
+//             }
+//         }
+
+//         context.stroke();
+//     }
+
+
+// }
 
