@@ -32,6 +32,7 @@ $(document).ready(function () {
     });
 });
 
+
 function canvas11() {
     gcanvas1 = document.getElementById("mycanvas1"),
         ctx1 = gcanvas1.getContext('2d'),
@@ -95,17 +96,7 @@ function drawCoordinates(x, y) {
         ctx1.stroke();
         document.getElementById("centernum").value = points.length;
 
-        /* f ((x>= 0 && x <= 225) && (y >= -400 && y <= -200)){
-        classes.push(1);
-    } else if ((x >= 225 && x <= 450) && (y >= -400 && y <= -200)) {
-        classes.push(2);
-    } else if ((x >=0 && x <= 225) && (y >= -200 && y <= 0)) {
-        classes.push(3);
-    } else {
-        //alert(isPoint1 +"   "+isPoint2);
-        if(is_in_triangle(x,y,225,-200,220,0,450,0)) classes.push(3);
-        if(is_in_triangle(x,y,225,-200,450,-200,450,0)) classes.push(2);
-    } */
+       
     }
     //alert(classes);
     temp1 = Math.abs(x);
