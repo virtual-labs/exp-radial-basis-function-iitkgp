@@ -10,7 +10,7 @@ Radial Basis Functions are first introduced in the solution of the real multivar
 
 The structure of an RBF networks in its most basic form involves three entirely different layers: an input layer, a hidden layer with a non-linear RBF activation function and an output layer with linear activation functions.
 
-<img src="./simulation/images/Radial_basis_theory_image_1.png" alt="Image" style="display: block; margin: 0 auto;">
+<img src="./simulation/images/Radial_basis_theory_image_1.png" alt="Image" style="display: block; margin: 0 auto; max-width:100%; heigth:auto;">
 
 **Input Layer**: The input layer is made up of source nodes (sensory units) whose number is equal to the dimension of the input vector.
 
@@ -32,7 +32,7 @@ $$
 
 As it is shown in Figure 2, the basis function is a curve (typically a Gaussian function, the width corresponding to the variance, *σ<sub>i</sub>*) which has a peak at zero distance and it decreases as the distance from the center increases.
 
-<img src="./simulation/images/Radial_basis_theory_image_2.png" alt="Image" style="display: block; margin: 0 auto;">
+<img src="./simulation/images/Radial_basis_theory_image_2.png" alt="Image" style="display: block; margin: 0 auto; max-width:100%; heigth:auto;">
 
 **Output Layer**: The transformation from the input space to the hidden unit space is nonlinear, whereas the transformation to the hidden unit space to the output space is linear. The *j<sup>th</sup>* output is computed as:
 
