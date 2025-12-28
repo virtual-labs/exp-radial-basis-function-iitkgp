@@ -1,0 +1,29 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the purpose of the hidden layer in a Radial Basis Function (RBF) network?",
+      "answers": {
+        "a": "To compute the weighted sum of input features",
+        "b": "To calculate the similarity or distance between input data and center points",
+        "c": " To apply nonlinear transformations to the input data",
+        "d": "To determine the final output of the network"
+      },
+      
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is a common activation function used in the hidden layer of an RBF network?",
+      "answers": {
+        "a": "Sigmoid function",
+        "b": "Rectified Linear Unit (ReLU)",
+        "c": "Radial basis function",
+        "d": "Softmax function"
+      },
+      
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    }
+  ]
+}
