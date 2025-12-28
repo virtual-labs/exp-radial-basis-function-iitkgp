@@ -1,4 +1,4 @@
-### Procedure
+## Procedure
 1. Click on Board Area to plot the training points in the data points section (data points be equal to number of centers).
 
 <img src="./images/procedure_1.png" style="max-width:100%; heigth:auto;">
