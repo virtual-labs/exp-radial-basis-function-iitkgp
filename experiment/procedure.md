@@ -1,20 +1,16 @@
-### Procedure
-1. Click on Board Area to plot the training points in the data points section
+## Procedure
+1. Click on Board Area to plot the training points in the data points section (data points be equal to number of centers).
 
-<img src="./simulation/images/image_1.png" style="width:700px; heigth:480px">
+<img src="./images/procedure_1.png" style="max-width:100%; heigth:auto;">
 
-2. You do not have to put the center point and the standard deviation as those two are fixed.
+2. Click on "Redraw" button to draw the sequence on the "Data Points"
 
-<img src="./simulation/images/image_2.png" style="width:700px; heigth:480px">
+<img src="./images/procedure_2.png" style="max-width:100%; heigth:auto;">
 
-3. Click on the "Go" button to plot the basis function
+3. Click on "Go" button to see the result to the problem achieved using Radial Basis Function. 
 
-<img src="./simulation/images/image_3.png" style="width:700px; heigth:480px">
+<img src="./images/procedure_3.png" style="max-width:100%; heigth:auto;">
 
-4. Click the "Redraw" button to draw the sequence on the "Data Points" section
+4. Click on "Reset" button and restart the experiment.
 
-<img src="./simulation/images/image_4.png" style="width:700px; heigth:480px">
-
-5. Click on "Reset" button to reset the entire thing.
-
-<img src="./simulation/images/image_1.png" style="width:700px; heigth:480px">
+<img src="./images/procedure_4.png" style="max-width:100%; heigth:auto;">

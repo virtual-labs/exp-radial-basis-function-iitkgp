@@ -40,14 +40,14 @@
                                 <h5 class="card-header">Parameters</h5>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="">Center Point</label>
+                                        <label for="">Number of Centers</label>
                                         <input type="number" class="form-control" id="centernum" oninput="checkcenter()"
-                                            placeholder="Centers point is 100" readonly>
+                                            placeholder="" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Standard Deviation</label>
                                         <input type="number" class="form-control" id="sd"
-                                            placeholder="Standard Deviation is 100" readonly>
+                                            placeholder="" readonly>
                                     </div>
 
                                 </div>
@@ -59,13 +59,14 @@
                                 <div class="card-body">
 
                                     <div class="d-flex gap-2 flex-column ">
-                                        <button type="button" class="btn btn-light border border-dark" id="classify-btn"
-                                            onClick="reset();"><b>Reset</b></button>
+                                       
 
                                         <button type="button" class="btn btn-light border border-dark" id="clear-btn"
                                             onClick="redraw();"><b>Redraw</b></button>
                                         <button type="button" class="btn btn-light border border-dark" id="clear-btn"
                                             onClick="go();"><b>Go</b></button>
+                                             <button type="button" class="btn btn-light border border-dark" id="classify-btn"
+                                            onClick="reset();"><b>Reset</b></button>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +109,7 @@
                     <div class="card ">
                         <h5 class="card-header">Basic Function</h5>
                         <div class="card-body">
-                            <canvas id="canvas" width="800" height="100"></canvas>
+                            <canvas id="canvas" width="800" height="200"></canvas>
                             <!--div id="ChartContainer" width="100%" height="300px">
 
                             </div-->
